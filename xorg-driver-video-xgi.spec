@@ -1,4 +1,3 @@
-#
 Summary:	X.org video drivers for XGI adapters
 Summary(pl.UTF-8):	Sterowniki obrazu X.org do kart graficznych XGI
 Name:		xorg-driver-video-xgi
@@ -24,6 +23,7 @@ BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.1.0
 Requires:	xorg-xserver-server >= 1.1.0
+Obsoletes:	XFree86-driver-xgi < 1:7.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
