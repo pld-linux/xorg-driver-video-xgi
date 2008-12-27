@@ -7,6 +7,8 @@ License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-xgi-%{version}.tar.bz2
 # Source0-md5:	08529fd015191be9244f598aa0894aa6
+Patch0:		%{name}-open.patch
+Patch1:		%{name}-cpp.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -24,6 +26,8 @@ BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.1.0
 BuildRequires:  rpmbuild(macros) >= 1.389
 %requires_xorg_xserver_videodrv
+Requires:	xorg-xserver-libdri >= 1.1.0
+Requires:	xorg-xserver-libglx >= 1.1.0
 Requires:	xorg-xserver-server >= 1.1.0
 Obsoletes:	XFree86-driver-xgi < 1:7.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -38,6 +42,8 @@ Sterowniki obrazu X.org do kart graficznych XGI:
 
 %prep
 %setup -q -n xf86-video-xgi-%{version}
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
