@@ -8,24 +8,24 @@ Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-xgi-%{version}.tar.bz2
 # Source0-md5:	b4ac771ae81b52fca9b6fa68006a258a
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libdrm-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
+BuildRequires:	xorg-lib-libpciaccess-devel >= 0.8.0
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
-BuildRequires:	xorg-proto-xextproto-devel
-BuildRequires:	xorg-proto-xf86dgaproto-devel
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= 1.1.0
-%requires_xorg_xserver_videodrv
+%{?requires_xorg_xserver_videodrv}
 Requires:	xorg-xserver-libdri >= 1.1.0
 Requires:	xorg-xserver-libglx >= 1.1.0
 Requires:	xorg-xserver-server >= 1.1.0
@@ -34,11 +34,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 X.org video drivers for XGI adapters:
-- XGI V3XT / V3XE / V5 / V8 and Z7 / Z9 based video card
+- Volari V3XT/V3XE/V5/V8
+- Volari Z7/Z9/Z9s/Z11
 
 %description -l pl.UTF-8
 Sterowniki obrazu X.org do kart graficznych XGI:
-- XGI V3XT / V3XE / V5 / V8 i Z7 / Z9
+- Volari V3XT/V3XE/V5/V8
+- Volari Z7/Z9/Z9s/Z11
 
 %prep
 %setup -q -n xf86-video-xgi-%{version}
@@ -49,8 +51,7 @@ Sterowniki obrazu X.org do kart graficznych XGI:
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--disable-static
+%configure
 
 %{__make}
 
@@ -67,6 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog
+%doc COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/xgi_drv.so
 %{_mandir}/man4/xgi.4*
