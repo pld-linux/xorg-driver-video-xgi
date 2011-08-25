@@ -2,7 +2,7 @@ Summary:	X.org video drivers for XGI adapters
 Summary(pl.UTF-8):	Sterowniki obrazu X.org do kart graficznych XGI
 Name:		xorg-driver-video-xgi
 Version:	1.6.0
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-xgi-%{version}.tar.bz2
@@ -30,6 +30,7 @@ BuildRequires:	xorg-xserver-server-devel >= 1.1.0
 Requires:	xorg-xserver-libdri >= 1.1.0
 Requires:	xorg-xserver-libglx >= 1.1.0
 Requires:	xorg-xserver-server >= 1.1.0
+Provides:	xorg-driver-video
 Obsoletes:	XFree86-driver-xgi < 1:7.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
