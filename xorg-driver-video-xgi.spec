@@ -2,13 +2,14 @@ Summary:	X.org video drivers for XGI adapters
 Summary(pl.UTF-8):	Sterowniki obrazu X.org do kart graficznych XGI
 Name:		xorg-driver-video-xgi
 Version:	1.6.1
-Release:	6
+Release:	7
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-xgi-%{version}.tar.bz2
 # Source0-md5:	103a17936676318b4b09af94dbc420a9
 Patch0:		%{name}-build.patch
 Patch1:		xserver-1.19.patch
+Patch2:		gcc10.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -50,6 +51,7 @@ Sterowniki obrazu X.org do kart graficznych XGI:
 %setup -q -n xf86-video-xgi-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}

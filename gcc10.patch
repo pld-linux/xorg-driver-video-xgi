@@ -1,0 +1,16 @@
+--- xf86-video-xgi-1.6.1/src/xgi_accel.h~	2015-08-18 00:57:47.000000000 +0200
++++ xf86-video-xgi-1.6.1/src/xgi_accel.h	2021-11-04 00:07:13.033520669 +0100
+@@ -119,10 +119,10 @@
+ /* Jong 09/27/2007; recover for compiler error */
+ /* typedef unsigned long ulong ; */
+ 
+-unsigned long    r_port, w_port ;
++extern unsigned long    r_port, w_port ;
+ 
+-int     G2CmdQueLen;
+-int 	Alignment ;
++extern int     G2CmdQueLen;
++extern int 	Alignment ;
+ /* int    GBCount = 0 ; */
+ 
+ extern void Volari_SetDefaultIdleWait(XGIPtr pXGI, unsigned HDisplay, 
